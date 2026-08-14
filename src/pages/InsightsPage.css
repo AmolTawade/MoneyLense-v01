@@ -1,0 +1,126 @@
+.insights-page {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.insights-header {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.insights-title {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--text-color);
+}
+
+.insights-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.time-filter {
+  padding: 8px 12px;
+  background-color: var(--bg-surface);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  font-size: 14px;
+}
+
+.insights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.insight-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-subtle);
+  border-left: 4px solid transparent;
+}
+
+.insight-card.POSITIVE { border-left-color: var(--success-color); }
+.insight-card.WARNING { border-left-color: var(--error-color); }
+.insight-card.INFO { border-left-color: var(--primary-color); }
+.insight-card.NEUTRAL { border-left-color: var(--text-muted); }
+
+.insight-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.insight-content {
+  flex: 1;
+}
+
+.insight-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.insight-message {
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.insight-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-left: auto;
+  align-self: center;
+}
+
+.empty-insights {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 60px 20px;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+}
+
+.empty-insights h3 {
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+}
+
+.empty-insights p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .insights-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .insight-card {
+    flex-direction: column;
+  }
+  
+  .insight-value {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+}

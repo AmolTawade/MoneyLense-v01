@@ -1,0 +1,134 @@
+.transaction-list-container {
+  margin-top: 24px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-color);
+}
+
+.empty-state h3 {
+  margin: 0 0 8px 0;
+  color: var(--text-color);
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Desktop Table */
+.desktop-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.desktop-table th, .desktop-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.desktop-table th {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.desktop-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Mobile Cards */
+.mobile-cards {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transaction-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: var(--error-color);
+  color: white;
+}
+
+/* Badges and Amounts */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-expense { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.badge-income { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
+.badge-investment { background-color: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.badge-transfer { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.amt-expense { color: #ef4444; font-weight: 600; }
+.amt-income { color: #10b981; font-weight: 600; }
+.amt-investment { color: #8b5cf6; font-weight: 600; }
+.amt-transfer { color: #f59e0b; font-weight: 600; }
+
+@media (max-width: 768px) {
+  .desktop-table { display: none; }
+  .mobile-cards { display: flex; }
+}
