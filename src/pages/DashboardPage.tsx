@@ -8,6 +8,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend
 } from 'recharts';
+import { demoTransactions } from '../data/demoData';
 import './DashboardPage.css';
 
 const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316'];
@@ -71,9 +72,34 @@ export const DashboardPage: React.FC = () => {
   const categoryData = analyticsService.getSpendingByCategory(transactions);
   const incomeVsExpenseData = analyticsService.getMonthlyIncomeVsExpenseSeries(transactions);
 
+  const handleLoadDemoData = () => {
+    if (window.confirm("Load sample transactions? This will replace your current local demo data.")) {
+      storageService.saveTransactions(demoTransactions);
+      loadData();
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="dashboard-page">
-      <h1 style={{ marginBottom: '32px', fontWeight: 700 }}>Overview</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+        <h1 style={{ margin: 0, fontWeight: 700 }}>Overview</h1>
+        <button 
+          onClick={handleLoadDemoData}
+          style={{ 
+            padding: '8px 16px', 
+            backgroundColor: 'var(--bg-surface)', 
+            border: '1px solid var(--border-color)', 
+            color: 'var(--text-color)', 
+            borderRadius: 'var(--radius-md)',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontWeight: 500
+          }}
+        >
+          Load Demo Data
+        </button>
+      </div>
 
       <div className="kpi-grid">
         <KPICard title="Total Spent (This Month)" value={currentSpent} previousValue={prevSpent} />
